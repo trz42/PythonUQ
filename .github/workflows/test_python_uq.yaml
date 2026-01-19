@@ -15,5 +15,7 @@ jobs:
       run: |
         module load Python
         which python
+        module load SciPy-bundle
+        module load matplotlib
         python uq-in-python.py
       shell: bash
