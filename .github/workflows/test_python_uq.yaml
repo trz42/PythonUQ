@@ -1,0 +1,19 @@
+name: Minimal usage
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: eessi/github-action-eessi@v3
+    - name: Test EESSI
+      run: |
+        module avail 2>&1 | wc -l
+      shell: bash
+    - name: Checkout repo
+      uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3.1.0
+    - name: Run UQ example
+      run: |
+        module load Python
+        which python
+        python uq-in-python.py
+      shell: bash
